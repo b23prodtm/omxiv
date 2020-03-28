@@ -46,3 +46,8 @@
 
 # generated header
 help.h
+
+Dockerfile.*
+!Dockerfile.template
+!Dockerfile.armhf
+*.old

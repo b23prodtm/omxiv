@@ -1,0 +1,14 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%:buster-build
+
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+
+# RUN [ "cross-build-start" ]
+RUN install_packages libjpeg8-dev \
+    libpng12-dev
+
+WORKDIR /usr/src/
+COPY . .
+RUN [ "/bin/bash", "setup.sh" ]
+# RUN [ "cross-build-end" ]
+
+CMD [ "/bin/bash", "true" ]
